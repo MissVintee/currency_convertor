@@ -6,7 +6,7 @@ class CurrencyConverterMaterial extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     final border = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(40),
+      borderRadius: BorderRadius.circular(30),
     );
 
     return Scaffold ( 
@@ -17,18 +17,27 @@ class CurrencyConverterMaterial extends StatelessWidget{
             Text ('0',
               style: TextStyle(fontSize: 30),
             ),
-            TextField(
-              decoration: InputDecoration(
-                prefixIcon: Icon(Icons.monetization_on_outlined),
-                prefixIconColor: Colors.black,
-                hintText: 'Amount in USD',
-                filled: true,
-                fillColor: Colors.white,
-                
-                focusedBorder: border,
-                enabledBorder: border,
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: TextField(
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.monetization_on_outlined),
+                  prefixIconColor: Colors.black,
+                  hintText: 'Amount in USD',
+                  filled: true,
+                  fillColor: Colors.white,
+                  
+                  focusedBorder: border,
+                  enabledBorder: border,
+                ),
+                keyboardType: TextInputType.numberWithOptions(decimal: true),
               ),
-            )
+            ),
+            TextButton(
+              onPressed: (){
+                debugPrint("button pressed");
+              }, child: Text('Convert'),
+            ),
           ],
         ),
       ),
