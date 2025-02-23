@@ -34,9 +34,12 @@ class CurrencyConverterMaterial extends StatelessWidget{
               ),
             ),
             TextButton(
-              onPressed: (){
-                debugPrint("button pressed");
-              }, child: Text('Convert'),
+              onPressed: () {debugPrint("button pressed");},
+              style: ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll(const Color.fromARGB(255, 44, 43, 43)),
+                  foregroundColor: WidgetStatePropertyAll(Colors.white),
+                ),
+              child: Text('Convert'),
             ),
           ],
         ),
