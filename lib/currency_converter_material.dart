@@ -33,11 +33,14 @@ class CurrencyConverterMaterial extends StatelessWidget{
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
               ),
             ),
-            TextButton(
+            ElevatedButton(
               onPressed: () {debugPrint("button pressed");},
               style: ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll(const Color.fromARGB(255, 44, 43, 43)),
+                  elevation: WidgetStatePropertyAll(20),
+                  backgroundColor: WidgetStatePropertyAll(const Color.fromARGB(255, 84, 83, 83)),
                   foregroundColor: WidgetStatePropertyAll(Colors.white),
+                  shape: WidgetStatePropertyAll(ContinuousRectangleBorder(borderRadius: BorderRadius.circular(10))),
+                  textStyle: WidgetStatePropertyAll(TextStyle(fontSize: 15)),
                 ),
               child: Text('Convert'),
             ),
