@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
-class CurrencyConverterMaterial extends StatelessWidget{
-  const CurrencyConverterMaterial({super.key});
+class CurrencyConverterMaterialPage extends StatefulWidget{
+  const CurrencyConverterMaterialPage({super.key});
+
+  @override
+  State<StatefulWidget> createState() => _CurrencyConverterMaterialPageState();
+}
+
+class _CurrencyConverterMaterialPageState extends State<CurrencyConverterMaterialPage>{
+  double result = 0;
+  final TextEditingController textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context){
@@ -14,12 +22,14 @@ class CurrencyConverterMaterial extends StatelessWidget{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text ('0',
+            Text (
+              'INR $result',
               style: TextStyle(fontSize: 30),
             ),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: TextField(
+                controller: textEditingController,
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.monetization_on_outlined),
                   prefixIconColor: Colors.black,
@@ -34,14 +44,18 @@ class CurrencyConverterMaterial extends StatelessWidget{
               ),
             ),
             ElevatedButton(
-              onPressed: () {debugPrint("button pressed");},
-              style: ButtonStyle(
-                  elevation: WidgetStatePropertyAll(20),
-                  backgroundColor: WidgetStatePropertyAll(const Color.fromARGB(255, 84, 83, 83)),
-                  foregroundColor: WidgetStatePropertyAll(Colors.white),
-                  shape: WidgetStatePropertyAll(ContinuousRectangleBorder(borderRadius: BorderRadius.circular(10))),
-                  textStyle: WidgetStatePropertyAll(TextStyle(fontSize: 15)),
+              onPressed: () {
+                setState(() {result = (double.parse(textEditingController.text) * 86.86);});
+              },
+              style: ElevatedButton.styleFrom(
+                elevation: 20,
+                backgroundColor: const Color.fromARGB(255, 84, 83, 83),
+                foregroundColor: Colors.white,
+                shape: ContinuousRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
                 ),
+                textStyle: TextStyle(fontSize: 15),
+              ),
               child: Text('Convert'),
             ),
           ],

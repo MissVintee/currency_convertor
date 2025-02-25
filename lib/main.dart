@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget{
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Currency Converter'),
+          title: Text('Currency Converter App'),
           backgroundColor: Colors.blue,
         ),
-        body: CurrencyConverterMaterial(),
+        body: CurrencyConverterMaterialPage(),
       ),
     );
   }
